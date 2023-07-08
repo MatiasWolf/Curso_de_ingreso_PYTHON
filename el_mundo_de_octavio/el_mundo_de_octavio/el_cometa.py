@@ -55,7 +55,64 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        alert("Saludos", "👾😎 Hola clase de los sabados 👾😎")
+        
+        diametro_menor_texto = prompt("Diametro Menor", "Ingrese el diametro menor")
+        lado_menor = prompt("Longitud del lado menor", "Ingrese la medida del lado menor")
+        lado_mayor = prompt("Longitud del lado mayor", "Ingrese la medida del lado mayor")
+        
+        #parseo
+        diametro_menor = int(diametro_menor_texto)
+        lado_menor_numero = int(lado_menor)
+        lado_mayor_numero = int(lado_mayor)
+        
+        #calculos
+        calculo_diametro_mayor_1 =  lado_mayor_numero ** 2 - (diametro_menor / 2)**2 
+        calculo_diametro_mayor_2 = calculo_diametro_mayor_1 ** 0.5
+        
+        calculo_diametro_mayor_3 = lado_menor_numero ** 2 - (diametro_menor / 2)**2 
+        calculo_diametro_mayor_4 = calculo_diametro_mayor_3 ** 0.5
+        
+        diametro_mayor = calculo_diametro_mayor_2 + calculo_diametro_mayor_4
+        
+        area_cometa = (diametro_mayor * diametro_menor) / 2
+        perimetro_cometa = (lado_menor_numero * 2) + (lado_mayor_numero * 2) 
+        mts_varillas = (perimetro_cometa + diametro_mayor + diametro_menor) / 100
+        
+        #area total del cometa
+        cola_cometa = (area_cometa * 10) / 100
+        area_total_cometa = area_cometa + cola_cometa
+        mts_papel = area_total_cometa / 100
+        
+        #materiales para 10 cometas
+        
+        mts_papel_para_10_cometas = mts_papel * 10
+        mts_varillas_para_10_cometas = (mts_varillas * 10)
+        
+        mensaje = "Los materiales necesarios para producir 10 cometas son:"
+        mensaje_final = "{0} \n Varillas: {1:.2f} mts \n Papel: {2:.2f} mts cuadrados".format(mensaje, mts_varillas_para_10_cometas, mts_papel_para_10_cometas)
+        
+        self.txt_diametro_menor.delete(0, 'end')
+        self.txt_diametro_menor.insert(0, diametro_menor)
+
+        self.txt_lados_menores.delete(0, 'end')
+        self.txt_lados_menores.insert(0, lado_menor_numero)
+
+        self.txt_lados_mayores.delete(0, 'end')
+        self.txt_lados_mayores.insert(0, lado_mayor_numero)
+        
+        alert("Cometas", mensaje_final)
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     
 if __name__ == "__main__":
