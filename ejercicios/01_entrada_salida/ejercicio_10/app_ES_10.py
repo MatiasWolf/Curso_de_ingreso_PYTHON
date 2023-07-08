@@ -51,7 +51,7 @@ class App(customtkinter.CTk):
         
         self.txt_importe.delete(0, "end")
         self.txt_descuento.delete(0, "end")
-        #self.txt_importe.delete(0, tkinter.END)
+        #self.txt_importe.delete(0, tkinter.END) es otra posibilidad
         alert("Importe", importe_final)
 
 
