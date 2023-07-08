@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Matias
+apellido: Wolf
 ---
 Ejercicio: entrada_salida_09
 ---
@@ -40,7 +40,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        sueldo_texto = self.txt_sueldo.get()
+        sueldo_numero = float(sueldo_texto)
+        incremento_texto = self.txt_incremento.get()
+        incremento_numero = int(incremento_texto)
+        incremento_en_pesos = (sueldo_numero * incremento_numero / 100)
+        sueldo_final = sueldo_numero + incremento_en_pesos
+        
+        alert("Sueldo", sueldo_final)
         
     
 if __name__ == "__main__":
