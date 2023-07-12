@@ -41,15 +41,14 @@ class App(customtkinter.CTk):
         
         if edad_numero < 10:
             alert("Etapas de la vida", "Es niño/a")
-        
-        if edad_numero >= 10 and edad_numero <= 13:
-            alert("Etapas de la vida", "Es pre-adolescente")
-            
-        if edad_numero > 13 and edad_numero <=17:
-            alert("Etapas de la vida", "Es adolescente")
-        
-        if edad_numero >= 18:
-            alert("Etapas de la vida", "Es mayor")
+        else:
+            if edad_numero <= 13:
+                alert("Etapas de la vida", "Es pre-adolescente")
+            else:
+                if edad_numero <=17:
+                    alert("Etapas de la vida", "Es adolescente")
+                else:
+                    alert("Etapas de la vida", "Es mayor")
 
         
         

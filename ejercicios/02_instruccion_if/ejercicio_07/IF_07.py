@@ -51,7 +51,7 @@ class App(customtkinter.CTk):
         
         if edad_numero >= 16 and nacion == "NATIVO":
             alert("VOTO", mensaje_1)
-        elif edad_numero >= 18 and nacion == "NATURALIZADO":
+        elif edad_numero >= 18:
             alert("VOTO", mensaje_1)
         else:
             alert("VOTO", mensaje_2)
