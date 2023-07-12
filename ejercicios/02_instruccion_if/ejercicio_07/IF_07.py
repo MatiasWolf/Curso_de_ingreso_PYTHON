@@ -55,7 +55,15 @@ class App(customtkinter.CTk):
             alert("VOTO", mensaje_1)
         else:
             alert("VOTO", mensaje_2)
+#----------------------------------------------------------
 
+    """ if (edad_numero >= 16 and nacion == "NATIVO") or edad_numero >= 18:
+            alert("VOTO", mensaje_1)
+        else:
+            alert("VOTO", mensaje_2)
+    
+    una alternativa utilizando cada mensaje una vez sola
+    """
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

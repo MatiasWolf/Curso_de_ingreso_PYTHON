@@ -49,8 +49,18 @@ class App(customtkinter.CTk):
                     alert("Etapas de la vida", "Es adolescente")
                 else:
                     alert("Etapas de la vida", "Es mayor")
+#---------------------------------------------------------------------
 
-        
+    """ if edad_numero < 10:
+            alert("Etapas de la vida", "Es niño/a")
+        elif edad_numero <= 13:
+            alert("Etapas de la vida", "Es pre-adolescente")
+        elif edad_numero <=17:
+            alert("Etapas de la vida", "Es adolescente")
+        else:
+            alert("Etapas de la vida", "Es mayor")
+        Una alternativa utilizando elif en vez de usar else e if por separado
+        """
         
     
 if __name__ == "__main__":
