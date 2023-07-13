@@ -38,8 +38,45 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca_lamparita = self.combobox_marca.get()
+        cantidad_lamparita = int(self.combobox_cantidad.get())
+        valor_lamparita = 800
+        descuento = 0
+        descuento_extra = 0
+
+        #Venta de 3 lamparitas
+        if cantidad_lamparita == 3:
+            if marca_lamparita == "ArgentinaLuz":
+                descuento = 15
+            elif marca_lamparita == "FelipeLamparas":
+                descuento = 10
+            else:
+                descuento = 5
+        elif cantidad_lamparita == 4:
+            if marca_lamparita == "ArgentinaLuz" or marca_lamparita == "FelipeLamparas":
+                descuento = 25
+            else:
+                descuento = 20
+        elif cantidad_lamparita == 5:
+            if marca_lamparita == "ArgentinaLuz":
+                descuento = 40
+            else:
+                descuento = 30
+        elif cantidad_lamparita >= 6:
+            descuento = 50
+            
+        total_importe = valor_lamparita * cantidad_lamparita
+        descuento_aplicado = total_importe * descuento / 100
+        importe_con_descuento = total_importe - descuento_aplicado
         
+        mensaje = "Su importe final es de {0} \nCon un descuento aplicado del {1}%".format(importe_con_descuento, descuento)
+        
+        if importe_con_descuento > 4000:
+            descuento_extra = importe_con_descuento * 5/100
+            importe_final_con_descuento = importe_con_descuento - descuento_extra
+            mensaje_extra = "Debido a que el importe supera los $4000, se le aplica un nuevo descuento del 5% \n Su importe final es de {0}".format(importe_final_con_descuento)
+            mensaje = "Su importe final es de {0} \nCon un descuento aplicado del {1}% \n{2}".format(importe_con_descuento, descuento, mensaje_extra)
+        alert("Titulo", mensaje)
     
 if __name__ == "__main__":
     app = App()

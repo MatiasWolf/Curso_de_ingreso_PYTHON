@@ -29,7 +29,7 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        numero = random.randint(0, 10)
+        numero = random.randint(1, 10)
         alert("Titulo", numero)
         
 
