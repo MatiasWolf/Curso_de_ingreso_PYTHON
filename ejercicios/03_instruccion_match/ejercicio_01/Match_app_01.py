@@ -47,6 +47,20 @@ class App(customtkinter.CTk):
             alert("UTN", "se vienen las vacaciones!!")
         elif mes == "Diciembre":
             alert("UTN", "Felices fiestas!!!")
+
+#--------------------MATCH//SWITCH--------------------------------
+
+    """ match mes:
+            case "Enero":
+                alert("UTN", "que comiences bien el año!!!")
+            case "Marzo":
+                alert("UTN", "a clases!!")
+            case "Julio":
+                alert("UTN", "se vienen las vacaciones!!")
+            case "Diciembre":
+                alert("UTN", "Felices fiestas!!!")
+"""
+#case_ es parecido al else
     
     
 if __name__ == "__main__":

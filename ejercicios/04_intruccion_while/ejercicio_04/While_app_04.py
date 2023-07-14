@@ -28,13 +28,14 @@ class App(customtkinter.CTk):
     
     def btn_validar_numero_on_click(self):
         
-        numero = True
+        numero = int(prompt("UTN", "Ingrese un numero"))
         
         while numero:
-            numero_txt = prompt("UTN", "Ingrese un numero")
-            numero = int(numero_txt)
+            
             if numero >= 0 and numero <= 9:
                 break
+            
+            numero = int(prompt("UTN", "Ingrese un numero"))
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
