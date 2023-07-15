@@ -29,7 +29,7 @@ class App(customtkinter.CTk):
         
         while (letra != "U" and letra != "T" and letra != "N"):
             letra = prompt("UTN", "Reingrese una letra")
-    
+            
         alert("UTN", "Es la letra correcta")
 if __name__ == "__main__":
     app = App()

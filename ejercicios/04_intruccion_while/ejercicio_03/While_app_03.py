@@ -32,6 +32,7 @@ class App(customtkinter.CTk):
         while clave != "utn750":
             
             clave = prompt("UTN", "Error\nReingrese una contraseña")
+            
     
     
 if __name__ == "__main__":

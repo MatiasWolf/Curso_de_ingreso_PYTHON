@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Matias
+Apellido: Wolf
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar 5 números mediante prompt. 
 Calcular la suma acumulada y el promedio de los números ingresados. 

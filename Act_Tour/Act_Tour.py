@@ -46,29 +46,50 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
     
     def btn_mostrar_on_click(self):
-        #1
+        
         nombre = prompt("UTN", "Ingrese su nombre")
+        while nombre.isdigit() or nombre == None or nombre == "" or len(nombre) < 3:
+            nombre = prompt("UTN", "Reingrese su nombre")
+            if nombre == None:
+                break
+        
         edad = prompt("UTN", "Ingrese su edad")
-        genero = prompt("UTN", "Ingrese su genero")
+        while edad.isdigit() == False or edad == None or nombre == "":
+            edad = prompt("UTN", "Reingrese su edad")
+            if edad == None:
+                break
         
-        alert("UTN", "Usted es {0}, tiene {1} años de edad y su género es {2}".format(nombre, edad, genero))
+        genero = prompt("UTN", 'Ingrese su genero\nPor ej.: "Masculino"/"Femenino"/"No Binario"')
+        while genero != "Masculino" and genero != "Femenino" and genero != "No Binario" or genero == None or genero == "":
+            genero = prompt("UTN", "Reingrese su genero, respetando los ejemplos dados")
+            if genero == None:
+                break
         
-        #2
-        altura = int(prompt("UTN", "Ingrese su altura (en centimetros)"))
+        altura = prompt("UTN", "Ingrese su altura en centimetros")
+        while altura.isdigit() == False or edad == None or genero == "":
+            altura = prompt("UTN", "Reingrese su altura en centimetros")
+            if altura == None:
+                break
+        
+        
+        
+        
+        edad = int(edad)
+        altura = int(altura)
+        
         if altura < 140:
-            alert("UTN", "Usted es bajo")
+            mensaje_altura = "bajo"
         elif altura <= 170:
-            alert("UTN", "Usted tiene una altura media")
+            mensaje_altura = "medio"
         elif altura <= 190:
-            alert("UTN", "Usted es alto")
+            mensaje_altura = "alto"
         else:
-            alert("UTN", "Usted es muy alto")
+            mensaje_altura = "muy alto"
         
-        #3
-        while edad.isdigit() == False:
-            alert("UTN", "Reingrese su edad, !sin letras!")
+        alert("UTN", "Usted es {0}, tiene {1} años de edad, su género es {2} y su altura es: {3}".format(nombre, edad, genero, mensaje_altura))
         
-
+        
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
