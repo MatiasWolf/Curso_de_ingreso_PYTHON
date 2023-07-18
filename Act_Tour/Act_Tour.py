@@ -88,6 +88,68 @@ class App(customtkinter.CTk):
         
         alert("UTN", "Usted es {0}, tiene {1} años de edad, su género es {2} y su altura es: {3}".format(nombre, edad, genero, mensaje_altura))
         
+        cantidad_exc = prompt("Excursiones", "Ingrese la cantidad de excursiones (entre 0 y 11)")
+        while cantidad_exc == None or cantidad_exc.isdigit() == False:
+            cantidad_exc = prompt("Excursiones", "Reingrese la cantidad de excursiones (entre 0 y 11)")
+        cantidad_exc = int(cantidad_exc)
+        
+        contador_exc = 0
+        precio_caro = 0
+        tipo_mas_caro = ''
+        precio_barato = 0
+        tipo_mas_barato = ''
+        promedio_precios = 0
+        suma_de_precios = 0
+        
+        tipo_mas_elegido = ''
+        contador_tipo_caminata = 0
+        contador_tipo_vehiculo = 0
+        
+        while contador_exc < cantidad_exc:
+            
+            importe = prompt("Importe", "Ingrese su importe")
+            while importe == None or not importe.isdigit():
+                importe = prompt("Importe", "Reingrese su importe")
+            importe_int = int(importe)
+            
+            tipo = prompt("Tipo de excursion", "Ingrese el tipo de excursion")
+            while tipo != "Caminata" and tipo != "Vehiculo":
+                tipo = prompt("Tipo de excursion", "Reingrese el tipo de excursion")
+            
+            while precio_barato == 0:
+                precio_barato += importe_int
+            
+            if precio_barato == None or importe_int < precio_barato:
+                precio_barato = importe_int
+                
+
+            if precio_caro == None or  importe_int > precio_caro:
+                precio_caro = importe_int
+                
+
+            suma_de_precios += importe_int
+            contador_exc += 1
+
+            if tipo == "Caminata":
+                contador_tipo_caminata += 1
+            if tipo == "Vehiculo":
+                contador_tipo_vehiculo += 1
+        
+        if contador_tipo_caminata > contador_tipo_vehiculo:
+            tipo_mas_elegido = "Caminata"
+        if contador_tipo_caminata < contador_tipo_vehiculo:
+            tipo_mas_elegido = "Vehiculo"
+        if contador_tipo_caminata == contador_tipo_vehiculo:
+            tipo_mas_elegido = "Se eligieron ambos tipos de excursion por igual"
+        
+        promedio_precios = suma_de_precios / cantidad_exc
+        
+        mensaje = "La excursion mas barata vale: ${0}\n\
+        La excursion mas cara vale: ${2}\n\
+        El promedio de precios es de: ${4}\n\
+        El tipo de excursión mas elegido es: {5}".format(precio_barato, tipo_mas_barato, precio_caro, tipo_mas_caro, promedio_precios, tipo_mas_elegido)
+        
+        alert("Informe", mensaje)
         
         
 if __name__ == "__main__":

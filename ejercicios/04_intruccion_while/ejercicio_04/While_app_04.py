@@ -35,7 +35,7 @@ class App(customtkinter.CTk):
             if numero >= 0 and numero <= 9:
                 break
             
-            numero = int(prompt("UTN", "Ingrese un numero"))
+            numero = int(prompt("UTN", "Reingrese un numero"))
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
