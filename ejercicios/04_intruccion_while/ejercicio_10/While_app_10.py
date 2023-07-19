@@ -46,7 +46,7 @@ class App(customtkinter.CTk):
             numero = prompt("UTN", "Ingrese un numero")
             numero = int(numero)
             
-            if numero >= 0:
+            if numero > 0:
                 acumulador_positivos += numero
                 contador_positivos += 1
             if numero < 0:

@@ -57,17 +57,16 @@ class App(customtkinter.CTk):
         while apellido.isdigit():
             apellido = prompt("UTN", "Reingrese su apellido (solo letras)")
         
-        edad = prompt("UTN", "Ingrese su edad")
-        edad = int(edad)
+        edad = int(prompt("UTN", "Ingrese su edad"))
         while edad < 18 or edad > 90:
             edad = prompt("UTN", "Reingrese su edad, respetando el rango de 18 a 90 años")
             edad = int(edad)
+        
         estado_civil = prompt('UTN', 'Ingrese su estado civil\nEJ.: "Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"')
         while estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and "Viudo/a":
             estado_civil = prompt("UTN", "Reingrese su estado civil respetando los ejemplos dados")
         
         numero_legajo = prompt("UTN", "Ingrese su numero de legajo (4 digitos)")
-        
         while len(numero_legajo) != 4 or numero_legajo.isdigit() == False or numero_legajo[0] == "0":
             numero_legajo = prompt("UTN", "Reingrese su numero de legajo, unicamente 4 digitos")
         numero_legajo = int(numero_legajo)
