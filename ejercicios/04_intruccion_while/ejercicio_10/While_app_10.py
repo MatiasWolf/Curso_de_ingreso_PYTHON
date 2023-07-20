@@ -49,10 +49,10 @@ class App(customtkinter.CTk):
             if numero > 0:
                 acumulador_positivos += numero
                 contador_positivos += 1
-            if numero < 0:
+            elif numero < 0:
                 acumulador_negativos += numero
                 contador_negativos += 1
-            if numero == 0:
+            else:
                 contador_cero += 1
             
             continuar = question("UTN", "¿Desea seguir ingresando numeros?")

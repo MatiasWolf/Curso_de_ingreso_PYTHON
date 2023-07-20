@@ -23,8 +23,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass 
-       
+        
+        numero = range(1, 6)
+        for numero in range(1, 6):
+            alert("UTN", numero)
             
 
 if __name__ == "__main__":
