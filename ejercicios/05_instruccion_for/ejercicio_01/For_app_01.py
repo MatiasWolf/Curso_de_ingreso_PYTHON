@@ -24,7 +24,6 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         
-        numero = range(1, 6)
         for numero in range(1, 6):
             alert("UTN", numero)
             

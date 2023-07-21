@@ -21,8 +21,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-    
+        
+        numero = int(prompt("UTN", "Ingrese un numero"))
+        for valor in range(2, numero):
+            if numero % valor == 0:
+                print(f"{numero} no es primo")
+                return False
+        print(f"{numero} es primo")
+        return True
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

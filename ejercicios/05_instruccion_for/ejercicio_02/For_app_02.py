@@ -7,6 +7,8 @@ import random
 
 
 '''
+Nombre: Matias
+Apellido: Wolf
 Al presionar el botón Mostrar 5 veces un mensaje (utilizando el Dialog Alert) con números DESCENDENTES, desde el 1 al 5.
 '''
 
@@ -24,7 +26,6 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         
-        numero = range(5, 0, -1)
         for numero in range(5, 0, -1):
             alert("UTN", numero)   
         

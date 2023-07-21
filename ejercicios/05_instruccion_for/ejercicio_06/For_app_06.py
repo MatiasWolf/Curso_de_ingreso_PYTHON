@@ -22,8 +22,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
         
+        contador_pares = 0
+        valor_ingresado = int(prompt("UTN", "Ingrese un numero"))
+        for numero in range(1, valor_ingresado):
+            if (numero % 2) == 0:
+                contador_pares += 1
+        
+        print(contador_pares)
     
 if __name__ == "__main__":
     app = App()
