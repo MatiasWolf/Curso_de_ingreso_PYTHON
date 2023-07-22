@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Matias
+Apellido: Wolf
 Al presionar el botón Mostrar pedir un número. Informar si el número es PRIMO o no.
 '''
 
@@ -29,6 +31,7 @@ class App(customtkinter.CTk):
                 return False
         print(f"{numero} es primo")
         return True
+    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

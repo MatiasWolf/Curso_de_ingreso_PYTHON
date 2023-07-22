@@ -58,15 +58,21 @@ class App(customtkinter.CTk):
             continuar = question("UTN", "¿Desea seguir ingresando numeros?")
             if continuar == False:
                 break
+            #Tambien se puede cerrar de la siguiente manera, evitando el question
+            """
+            if numero == None:
+                break
+            """
         
-        diferencia_numeros = acumulador_positivos + acumulador_negativos
-        
+        diferencia_numeros = contador_positivos - contador_negativos
+        if diferencia_numeros < 0:
+            diferencia_numeros = diferencia_numeros * (-1)
         alert("UTN", f"La suma acumulada de numeros positivos es: {acumulador_positivos}\n\
         La suma acumulada de numeros negativos es: {acumulador_negativos}\n\
         La cantidad de numeros positivos ingresados es: {contador_positivos}\n\
         La cantidad de numeros negativos ingresados es: {contador_negativos}\n\
         La cantidad de ceros ingresados es: {contador_cero}\n\
-        La diferencia entre los numeros positivos y negativos es: {diferencia_numeros}")
+        La diferencia entre la cantidad de numeros positivos y negativos es: {diferencia_numeros}")
         
 if __name__ == "__main__":
     app = App()

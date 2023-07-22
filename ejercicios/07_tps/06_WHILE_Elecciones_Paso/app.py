@@ -31,6 +31,7 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
+        
         continuar = True
         acumulador_votos = 0
         contador_candidatos = 0
@@ -40,10 +41,11 @@ class App(customtkinter.CTk):
         bandera_primer_ingreso = False
         
         while continuar == True:
-            
+            #nombre del candidato
             candidato = prompt("PASO", "Ingrese el nombre del candidato a las paso")
             contador_candidatos += 1
             
+            #edad del candidato
             edad_candidato = prompt("PASO", "Ingrese la edad del candidato")
             edad_candidato = int(edad_candidato)
             while edad_candidato <= 25:
@@ -51,6 +53,7 @@ class App(customtkinter.CTk):
                 edad_candidato = int(edad_candidato)
             acumulador_edades = acumulador_edades + edad_candidato
             
+            #votos del candidato
             votos = prompt("PASO", "Ingrese la cantidad de votos recibidos por el candidato")
             votos = int(votos)
             while votos < 0:

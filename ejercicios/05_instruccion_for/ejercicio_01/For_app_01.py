@@ -7,6 +7,8 @@ import random
 
 
 '''
+Nombre: Matias
+Apellido: Wolf
 Al presionar el botón Mostrar 5 veces un mensaje (utilizando el Dialog Alert) con números ASCENDENTES, desde el 1 al 5.
 '''
 

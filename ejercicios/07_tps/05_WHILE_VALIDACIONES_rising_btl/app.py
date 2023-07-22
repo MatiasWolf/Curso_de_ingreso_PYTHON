@@ -54,7 +54,7 @@ class App(customtkinter.CTk):
     def btn_validar_on_click(self):
         
         apellido = prompt("UTN", "Ingrese su apellido")
-        while apellido.isdigit():
+        while apellido.isalpha() == False:
             apellido = prompt("UTN", "Reingrese su apellido (solo letras)")
         
         edad = int(prompt("UTN", "Ingrese su edad"))

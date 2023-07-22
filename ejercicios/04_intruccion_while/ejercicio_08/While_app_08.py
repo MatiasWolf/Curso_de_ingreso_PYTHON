@@ -46,7 +46,6 @@ class App(customtkinter.CTk):
             if numero > 0:
                 acumulador_positivos = acumulador_positivos + numero
             else:
-                if numero < 0:
                     acumulador_negativos = (acumulador_negativos * numero)
             
             if numero == 0:

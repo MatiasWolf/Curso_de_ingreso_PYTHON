@@ -95,9 +95,7 @@ class App(customtkinter.CTk):
         
         contador_exc = 0
         precio_caro = 0
-        tipo_mas_caro = ''
         precio_barato = 0
-        tipo_mas_barato = ''
         promedio_precios = 0
         suma_de_precios = 0
         
@@ -145,9 +143,9 @@ class App(customtkinter.CTk):
         promedio_precios = suma_de_precios / cantidad_exc
         
         mensaje = "La excursion mas barata vale: ${0}\n\
-        La excursion mas cara vale: ${2}\n\
-        El promedio de precios es de: ${4}\n\
-        El tipo de excursión mas elegido es: {5}".format(precio_barato, tipo_mas_barato, precio_caro, tipo_mas_caro, promedio_precios, tipo_mas_elegido)
+        La excursion mas cara vale: ${1}\n\
+        El promedio de precios es de: ${2}\n\
+        El tipo de excursión mas elegido es: {3}".format(precio_barato, precio_caro, promedio_precios, tipo_mas_elegido)
         
         alert("Informe", mensaje)
         
