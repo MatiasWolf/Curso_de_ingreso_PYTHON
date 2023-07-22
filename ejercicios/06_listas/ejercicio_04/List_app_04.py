@@ -20,12 +20,19 @@ class App(customtkinter.CTk):
         self.btn_calcular = customtkinter.CTkButton(master=self, text="MÍNIMO", command=self.btn_calcular_on_click)
         self.btn_calcular.grid(row=2, pady=10, columnspan=2, sticky="nsew")
 
-        self.lista_datos = [1,80,5,0,15,-5,1,79]
+        self.lista_datos = [1,80,5,0,15,-5,1,79,-10]
 
 
     def btn_calcular_on_click(self):
-        pass
-    
+        
+        bandera = False
+        minimo = None
+        
+        for i in self.lista_datos:
+            if minimo == None or i < minimo:
+                minimo = i
+                
+        alert("UTN", f"El minimo es: {minimo}")
     
 if __name__ == "__main__":
     app = App()
