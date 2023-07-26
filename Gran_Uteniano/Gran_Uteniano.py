@@ -13,11 +13,13 @@ Es la gala de eliminación del Gran Utniano y la producción nos pide un program
 Los participantes en la placa son: Giovanni, Gianni y Facundo. Fausto no fue nominado y Marina no está en la placa esta semana por haber ganado la inmunidad.
 
 Cada televidente que vota deberá ingresar:
-Nombre del votante
-Edad del votante (debe ser mayor a 13)
-Género del votante (Masculino, Femenino, Otro)
-El nombre del participante a quien le dará el voto negativo (Debe estar en placa)
+A) Nombre del votante
+B) Edad del votante (debe ser mayor a 13)
+C) Género del votante (Masculino, Femenino, Otro)
+D) El nombre del participante a quien le dará el voto negativo (Debe estar en placa)
+
 No se sabe cuántos votos entrarán durante la gala.
+
 Se debe informar al usuario:
 A- El promedio de edad de las votantes de género Femenino 
 B- Cantidad de personas de género masculino entre 25 y 40 años que votaron a Giovanni o a Facundo.
@@ -41,10 +43,10 @@ class App(customtkinter.CTk):
         self.btn_cargar = customtkinter.CTkButton(master=self, text="Cargar", command=self.btn_cargar_on_click)
         self.btn_cargar.grid(row=3, pady=10, columnspan=2, sticky="nsew")
 
-        self.lista_nombres = ["Brandon", "Lucia","Matias","Fulano", "Maria", "Luis"]
-        self.lista_edades = [14, 70, 33, 33, 21, 27]
-        self.lista_generos = ["Femenino", "Otro", "Masculino", "Masculino", "Femenino", "Otro"] 
-        self.lista_participantes = ['Giovanni', 'Gianni', 'Facundo', 'Gianni', 'Facundo', 'Facundo']
+        self.lista_nombres = []
+        self.lista_edades = []
+        self.lista_generos = [] 
+        self.lista_participantes = []
 
 
     def btn_mostrar_on_click(self):
@@ -63,7 +65,7 @@ class App(customtkinter.CTk):
         else:
             promedio_edad_femenino = "No hubo votantes femeninos"
         
-        print(f"El promedio de edades de votantes femeninos es: {promedio_edad_femenino}")
+        print(f"El promedio de edades de votantes femeninos es: {promedio_edad_femenino:.2f}")
         
         #########################################PUNTO B#########################################################
         #B- Cantidad de personas de género masculino entre 25 y 40 años que votaron a Giovanni o a Facundo.
@@ -122,20 +124,52 @@ class App(customtkinter.CTk):
         #########################################PUNTO E#########################################################
         #E- El nombre del participante que debe dejar la casa (El que tiene más votos)
         
-        
-        
-        
         if contador_Facundo > contador_Gianni and contador_Facundo > contador_Giovanni:
             participante_expulsado = "Facundo"
+            porcentaje_expulsado = porcentaje_votos_Facundo
         elif contador_Gianni > contador_Giovanni:
             participante_expulsado = "Gianni"
+            porcentaje_expulsado = porcentaje_votos_Gianni
         else:
             participante_expulsado = "Giovanni"
-        mensaje = f"Quien debe abandonar la casa es: {participante_expulsado}"
+            porcentaje_expulsado = porcentaje_votos_Giovanni
+        mensaje = f"Quien debe abandonar la casa es: {participante_expulsado} con el {porcentaje_expulsado}% de los votos"
         print(mensaje)
+        
     def btn_cargar_on_click(self):
-        pass
-    
+        continuar = True
+        while continuar == True:
+            #A) Nombre del votante
+            nombre_votante = prompt("Gran Uteniano", "Ingrese su nombre")
+            while not nombre_votante.isalpha or len(nombre_votante) < 3:
+                nombre_votante = prompt("Gran Uteniano", "Reingrese su nombre correctamente")
+            
+            self.lista_nombres.append(nombre_votante)
+            
+            #B) Edad del votante (debe ser mayor a 13)
+            edad_votante = int(prompt("Gran Uteniano", "Ingrese su edad (Unicamente pueden votar mayores de 13 años)"))
+            while edad_votante < 13:
+                edad_votante = int(prompt("Gran Uteniano", "Reingrese su edad correctamente"))
+            
+            self.lista_edades.append(edad_votante)
+
+            #C) Género del votante (Masculino, Femenino, Otro)
+            genero_votante = prompt("Gran Uteniano", 'Ingrese su genero ("Masculino","Femenino","Otro")')
+            while (genero_votante != "Masculino" and genero_votante != "Femenino" and genero_votante != "Otro") or not genero_votante.isalpha:
+                genero_votante = prompt("Gran Uteniano", "Reingrese su genero respetando los ejemplos dados anteriormente")
+            
+            self.lista_generos.append(genero_votante)
+            
+            #D) El nombre del participante a quien le dará el voto negativo (Debe estar en placa)
+            voto = prompt("Gran Uteniano", '¿Quien desea que abandone la casa?\n("Facundo","Gianni","Giovanni")')
+            while (voto != "Facundo" and voto != "Gianni" and voto != "Giovanni") or not voto.isalpha:
+                voto = prompt("Gran Uteniano", "Reingrese su voto correctamente")
+            
+            self.lista_participantes.append(voto)
+            
+            continuar = question("Gran Uteniano", "¿Hay algun otro televidente que desee votar?")
+            if continuar == False:
+                break
 if __name__ == "__main__":
     app = App()
     app.mainloop()
